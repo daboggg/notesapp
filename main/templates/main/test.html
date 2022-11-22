@@ -1,0 +1,41 @@
+{% extends 'layout/basic.html' %}
+{% load bootstrap4 %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+
+
+
+    <form method="post">
+        {% csrf_token %}
+{#        <div class="btn-group btn-group-toggle" data-toggle="buttons">#}
+{##}
+{#            {% for f in form.like %}#}
+{#                <label for="{{ f.id_for_label }}" class="btn btn-secondary">#}
+{#                    {{ f.choice_label }}#}
+{#                    {{ f.tag }}#}
+{#                </label>#}
+{#            {% endfor %}#}
+{##}
+{##}
+{#        </div>#}
+        <input type="time">
+        <input type="date">
+        {{ form.my_date_field }}
+        {{ form.my_tyme_field }}
+        <div class="row justify-content-end mr-1">
+            {#                {% buttons submit="Войти" class="pull right" %}{% endbuttons %}#}
+            <button type="submit" class="btn btn-secondary">Войти</button>
+        </div>
+    </form>
+
+
+
+
+
+{% endblock %}
+
+

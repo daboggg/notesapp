@@ -1,0 +1,61 @@
+{% extends 'layout/basic.html' %}
+{% load bootstrap4 %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-10">
+            <div class="h1 text-center">Создание записки</div>
+            <form class="mb-3" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.media }}
+            {% bootstrap_form form layout='horizontal' %}
+
+                <div id="accordion">
+                    <div class="">
+                        <div class="card-header" id="headingOne">
+                            <h5 class="mb-0">
+                                <a style="color: inherit" class="text-secondary collapsed" data-toggle="collapse" href="#collapseOne"
+                                        aria-expanded="false" aria-controls="collapseOne">
+                                    Еще изображения
+                                    <span class="oi oi-chevron-bottom mr-3"></span>
+                                </a>
+                            </h5>
+                        </div>
+                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                            <div class="card-body">
+                                {% bootstrap_formset formset layout='horizontal' %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="">
+                        <div class="card-header" id="headingTwo">
+                            <h5 class="mb-0">
+                                <a style="color: inherit" class="text-secondary collapsed" data-toggle="collapse" href="#collapseTwo"
+                                        aria-expanded="false" aria-controls="collapseTwo">
+                                    Файлы
+                                    <span class="oi oi-chevron-bottom mr-3"></span>
+                                </a>
+                            </h5>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                            <div class="card-body">
+                                {% bootstrap_formset formset_files layout='horizontal' %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            <div class="row justify-content-end mr-1 mt-3">
+{#                {% buttons submit="Войти" class="pull right" %}{% endbuttons %}#}
+                <button type="submit" class="btn btn-secondary">Создать</button>
+            </div>
+            </form>
+
+        </div>
+    </div>
+
+{% endblock %}

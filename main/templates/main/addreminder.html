@@ -1,0 +1,29 @@
+{% extends 'layout/basic.html' %}
+{% load bootstrap4 %}
+{% load paginate_tags %}
+
+{% block title %}
+    {{ title|truncatechars:40 }}
+{% endblock %}
+
+{% block content %}
+
+    {% if not user.is_activated %}
+        <div class="row justify-content-center">
+            <h2 class="mx-4">Для добавления напоминания выполните <a href="{% url 'main:repeat_activate' %}">активацию</a></h2>
+        </div>
+
+    {% else %}
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.media }}
+            {% bootstrap_form form layout='horizontal' %}
+            <div class="row justify-content-end mr-1 mt-3">
+                <button type="submit" class="btn btn-secondary">{{ button_name }}</button>
+            </div>
+        </form>
+    {% endif %}
+
+
+
+{% endblock %}

@@ -1,0 +1,28 @@
+.aswop {
+    font-size: x-large;
+    background-color: #4ac1f7;
+}
+.nav-link {
+    font-size: 1.2rem !important;
+}
+.card {
+    border: 2px solid rgb(109, 118, 126) !important;
+}
+.btn-circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 35px;
+    text-align: center;
+    padding-left: 0;
+    padding-right: 0;
+    font-size: 16px;
+    white-space: normal; /* восстанавливаем свойству значение по умолчанию */
+}
+
+.bt-float {
+    display: block;
+    position: fixed;
+    right: 50px;
+    bottom: 70px;
+    z-index: 99999;
+}
